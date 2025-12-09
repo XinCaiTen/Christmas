@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Giáng Sinh 2025 ✨</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Font Icon cho nút nhạc -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-dark: #071827;
+      --accent: #4da3ff;
+      --accent-glow: rgba(77, 163, 255, 0.4);
+      --text-main: #f7fbff;
+      --text-sub: #c6d7f2;
+      --glass-bg: rgba(13, 30, 56, 0.65);
+      --glass-border: rgba(146, 187, 255, 0.25);
+      --radius-xl: 24px;
+      --shadow-soft: 0 15px 35px rgba(0, 0, 0, 0.4);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #163a63 0, #040915 60%, #000000 100%);
+      color: var(--text-main);
+      min-height: 100vh;
+      line-height: 1.6;
+      overflow-x: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 1080px;
+      padding: 24px 16px 80px; /* Thêm padding bottom để tránh nút nhạc che nội dung */
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* --- ANIMATION UTILS --- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* --- HERO SECTION --- */
+    .hero {
+      position: relative;
+      padding: 32px 24px;
+      border-radius: 30px;
+      /* Glassmorphism Effect */
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+      margin-bottom: 32px;
+    }
+
+    /* Glow effects behind hero */
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -100px;
+      right: -50px;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, #2d6da3 0%, transparent 70%);
+      filter: blur(60px);
+      opacity: 0.5;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.8fr) minmax(0, 1.2fr);
+      gap: 30px;
+      align-items: center;
+    }
+
+    @media (max-width: 820px) {
+      .hero-content {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(9, 28, 52, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      margin-bottom: 12px;
+      font-size: 0.8rem;
+      color: var(--accent);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .hero-badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #5cffc3;
+      box-shadow: 0 0 10px #5cffc3;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(1.2); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      margin-bottom: 16px;
+      line-height: 1.2;
+      background: linear-gradient(to right, #fff, #bde0ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Typing cursor */
+    .typing-cursor::after {
+      content: '|';
+      animation: blink 1s step-end infinite;
+      color: var(--accent);
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--text-sub);
+      margin-bottom: 20px;
+      max-width: 90%;
+    }
+
+    .hero-note {
+      font-size: 0.9rem;
+      color: var(--accent);
+      font-style: italic;
+      background: rgba(77, 163, 255, 0.05);
+      padding: 10px 16px;
+      border-radius: 12px;
+      display: inline-block;
+    }
+
+    /* Hero Card (Right side) */
+    .hero-card {
+      background: rgba(13, 25, 45, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 20px;
+      padding: 20px;
+      backdrop-filter: blur(5px);
+      transform: rotate(2deg);
+      transition: transform 0.3s ease;
+    }
+
+    .hero-card:hover {
+      transform: rotate(0deg) scale(1.02);
+      border-color: var(--accent);
+    }
+
+    .hero-card-title {
+      font-size: 0.95rem;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .hero-line {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      margin-bottom: 12px;
+    }
+
+    .hero-quote {
+      font-size: 1rem;
+      color: var(--text-sub);
+      line-height: 1.7;
+    }
+    
+    .hero-quote span {
+      color: #fff;
+      text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    }
+
+    /* --- GALLERY SECTION --- */
+    .section {
+      margin-top: 40px;
+      padding: 24px;
+      border-radius: var(--radius-xl);
+      background: var(--glass-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .section-header h2 {
+      font-size: 1.4rem;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-sub {
+      color: var(--text-sub);
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+    }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 16px;
+    }
+
+    .photo-item {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 3/4;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .photo-item:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 10px 25px rgba(77, 163, 255, 0.3);
+      z-index: 10;
+    }
+
+    .photo-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .photo-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 15px;
+      background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+      opacity: 0;
+      transform: translateY(10px);
+      transition: 0.3s ease;
+    }
+
+    .photo-item:hover .photo-info {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .photo-placeholder {
+      font-size: 0.85rem;
+      color: #fff;
+      font-weight: 500;
+    }
+
+    /* --- MESSAGE SECTION --- */
+    .message {
+      display: grid;
+      grid-template-columns: 1.8fr 1.2fr;
+      gap: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .message { grid-template-columns: 1fr; }
+    }
+
+    .message-card {
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 18px;
+      padding: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .message-text {
+      font-size: 1rem;
+      color: #dbeafe;
+      line-height: 1.8;
+      white-space: pre-line;
+    }
+
+    .highlight-box {
+      margin-top: 15px;
+      padding: 15px;
+      background: rgba(77, 163, 255, 0.1);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 12px 12px 0;
+    }
+
+    .signature {
+      text-align: right;
+      margin-top: 20px;
+      font-family: cursive, sans-serif;
+      font-size: 1.2rem;
+      color: var(--accent);
+    }
+
+    /* TIMELINE STYLES */
+    .timeline {
+      padding-left: 10px;
+      border-left: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 24px;
+      padding-left: 20px;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -5px;
+      top: 6px;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 10px var(--accent);
+    }
+
+    .timeline-content strong {
+      color: #fff;
+      display: block;
+      margin-bottom: 4px;
+    }
+    
+    .timeline-content {
+      font-size: 0.9rem;
+      color: var(--text-sub);
+    }
+
+    /* --- MUSIC PLAYER --- */
+    .music-player {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(13, 30, 56, 0.85);
+      backdrop-filter: blur(10px);
+      padding: 10px 16px;
+      border-radius: 99px;
+      border: 1px solid rgba(77, 163, 255, 0.3);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+      transition: transform 0.3s;
+    }
+    
+    .music-player:hover {
+      transform: scale(1.05);
+    }
+
+    .music-btn {
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.2rem;
+      cursor: pointer;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--accent);
+      box-shadow: 0 0 15px rgba(77, 163, 255, 0.5);
+    }
+
+    .music-info {
+      font-size: 0.8rem;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .music-wave {
+      display: flex;
+      align-items: flex-end;
+      height: 15px;
+      gap: 2px;
+    }
+
+    .bar {
+      width: 3px;
+      background: var(--accent);
+      animation: equalizer 1s infinite;
+    }
+    .bar:nth-child(1) { height: 6px; animation-delay: 0s; }
+    .bar:nth-child(2) { height: 12px; animation-delay: 0.2s; }
+    .bar:nth-child(3) { height: 8px; animation-delay: 0.4s; }
+    .bar:nth-child(4) { height: 10px; animation-delay: 0.1s; }
+
+    .paused .bar { animation-play-state: paused; height: 3px; }
+
+    @keyframes equalizer {
+      0%, 100% { height: 4px; }
+      50% { height: 14px; }
+    }
+
+    /* --- LIGHTBOX --- */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.95);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    
+    .lightbox.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90vh;
+      border-radius: 8px;
+      box-shadow: 0 0 50px rgba(77, 163, 255, 0.2);
+      transform: scale(0.9);
+      transition: transform 0.3s;
+    }
+
+    .lightbox.active img {
+      transform: scale(1);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      color: #fff;
+      font-size: 2rem;
+      cursor: pointer;
+      background: rgba(255,255,255,0.1);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* --- SNOW ANIMATION REFINED --- */
+    .snow {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+    
+    .snowflake {
+      position: absolute;
+      top: -10px;
+      background: #fff;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-10vh) translateX(0);
+        opacity: 0;
+      }
+      20% {
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(100vh) translateX(20px);
+        opacity: 0.3;
+      }
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="snow" id="snowContainer"></div>
+
+  <!-- Music Player -->
+  <div class="music-player">
+    <button class="music-btn" id="musicToggle">
+      <i class="fas fa-play"></i>
+    </button>
+    <div class="music-info">
+      <span style="font-weight: 600;">Giáng Sinh An Lành</span>
+      <div class="music-wave paused" id="musicWave">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+    </div>
+    <!-- 
+      LƯU Ý: Thay link mp3 ở dưới bằng link nhạc bạn thích.
+      Link hiện tại là nhạc không lời Giáng sinh mẫu.
+    -->
+    <audio id="bgMusic" loop>
+      <source src="https://cdn.pixabay.com/download/audio/2022/11/22/audio_febc508520.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <main class="page">
+    <!-- HERO -->
+    <section class="hero reveal active">
+      <div class="hero-content">
+        <div>
+          <div class="hero-badge">
+            <span class="hero-badge-dot"></span>
+            <span>Noel 2025 · Dành riêng cho em 🎄</span>
+          </div>
+          
+          <div class="hero-title-small">Gửi đến T</div>
+          <h1 id="typingTitle" class="typing-cursor"></h1> <!-- JS sẽ điền text vào đây -->
+          
+          <p class="hero-sub">
+            Đây là góc nhỏ anh làm để lưu lại những khoảnh khắc dễ thương của em,
+            một chút màu xanh em thích, một chút ấm áp anh muốn gửi tới.
+          </p>
+          <div class="hero-note">
+            *Mở trang này vào mỗi mùa Giáng sinh sau nữa, biết đâu mình lại mỉm cười vì những gì đã cùng đi qua.* ✶
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <div class="hero-card-title">
+            <span>Góc bí mật của <strong>T</strong> ✨</span>
+            <span class="snow-tag">blue & white edition</span>
+          </div>
+          <div class="hero-line"></div>
+          <p class="hero-quote">
+            “Nếu Giáng sinh là mùa để ước, thì ước của anh đơn giản là:
+            <span>mỗi năm đều vẫn còn có em để chúc một câu an lành.</span>”
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="section reveal">
+      <div class="section-header">
+        <h2 class="section-title"><i class="far fa-images"></i> Những khoảnh khắc em cười ❄️</h2>
+        <p class="section-sub">Nhấn vào từng tấm để xem rõ hơn nhé.</p>
+      </div>
+      <div class="photo-grid">
+        <!-- Thay ảnh thật của bạn vào đây -->
+        <div class="photo-item">
+          <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?q=80&w=2070&auto=format&fit=crop" loading="lazy" alt="Memory 1" />
+          <div class="photo-info">
+            <div class="photo-placeholder">Ảnh 1 – Em cười kiểu “không giống tiếng người” 😆</div>
+          </div>
+        </div>
+        <div class="photo-item">
+          <img src="https://images.unsplash.com/photo-1516726817505-f5ed825624d8?q=80&w=1974&auto=format&fit=crop" loading="lazy" alt="Memory 2" />
+          <div class="photo-info">
+            <div class="photo-placeholder">Ảnh 2 – Buổi đi chơi đáng nhớ.</div>
+          </div>
+        </div>
+        <div class="photo-item">
+          <img src="https://images.unsplash.com/photo-1482592759887-19d42dd55047?q=80&w=1976&auto=format&fit=crop" loading="lazy" alt="Memory 3" />
+          <div class="photo-info">
+            <div class="photo-placeholder">Ảnh 3 – Lúc em bận rộn mà vẫn vui.</div>
+          </div>
+        </div>
+        <div class="photo-item">
+          <img src="https://images.unsplash.com/photo-1519757098495-2cc686c478a0?q=80&w=2071&auto=format&fit=crop" loading="lazy" alt="Memory 4" />
+          <div class="photo-info">
+            <div class="photo-placeholder">Ảnh 4 – Giấc ngủ trưa huyền thoại 💤</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MESSAGE + TIMELINE -->
+    <section class="section reveal">
+      <div class="section-header">
+        <h2 class="section-title"><i class="fas fa-envelope-open-text"></i> Lời chúc Giáng sinh gửi em 💙</h2>
+        <p class="section-sub">Một chút chữ, cho mùa đông đỡ lạnh.</p>
+      </div>
+
+      <div class="message">
+        <div class="message-card">
+          <h3>Gửi T,</h3>
+          <div class="message-text">
+            Anh không giỏi nói trực tiếp, nên anh để những điều này nằm yên ở đây.
+
+            Cảm ơn em vì những lần rủ đi mua đồ, chia cho anh miếng hoa quả, nhờ anh việc linh tinh, hay đơn giản là lúc em cười rồi trêu anh “không giống tiếng người”.
+
+            <div class="highlight-box">
+              <strong>Giáng sinh 2025, anh chúc em:</strong>
+              <br>– Luôn giữ được năng lượng tích cực mà em mang tới cho mọi người.
+              <br>– Đi đường luôn bình an, thi cử thuận lợi, làm gì cũng vững vàng.
+              <br>– Dù bận rộn vẫn có thời gian để nghỉ ngơi và vui.
+            </div>
+
+            Nếu sau này em tình cờ mở lại trang web này, hy vọng em biết là: đã từng có một mùa Giáng sinh, anh dành nhiều thời gian chỉ để nghĩ cách làm em mỉm cười một xíu thôi. 💫
+          </div>
+
+          <div class="signature">
+            Thân,<br>
+            <span>D.</span>
+          </div>
+        </div>
+
+        <aside class="message-card">
+          <h3>Nhật ký nhỏ 2025 ✶</h3>
+          <div class="timeline" style="margin-top: 15px;">
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <strong>Khởi động</strong>
+                Ý tưởng về trang web này xuất hiện sau vài cuộc trò chuyện vẩn vơ.
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <strong>Màu xanh & trắng</strong>
+                Giao diện chọn theo màu em thích: xanh dương – trắng, như bầu trời đêm Noel.
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <strong>Gửi tặng</strong>
+                Hy vọng món quà code này không làm máy em bị lag ^^
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close" id="lightboxClose">&times;</span>
+    <img id="lightboxImg" src="" alt="Full view" />
+  </div>
+
+  <script>
+    // 1. Tạo tuyết rơi (Logic tối ưu hơn)
+    const snowContainer = document.getElementById('snowContainer');
+    const snowCount = 60;
+
+    for(let i = 0; i < snowCount; i++) {
+      const flake = document.createElement('div');
+      flake.className = 'snowflake';
+      const size = Math.random() * 4 + 2 + 'px';
+      
+      flake.style.width = size;
+      flake.style.height = size;
+      flake.style.left = Math.random() * 100 + 'vw';
+      flake.style.animationDuration = (Math.random() * 5 + 5) + 's'; // 5-10s
+      flake.style.animationDelay = (Math.random() * -10) + 's';
+      flake.style.opacity = Math.random() * 0.7 + 0.3;
+      
+      snowContainer.appendChild(flake);
+    }
+
+    // 2. Hiệu ứng Scroll Reveal (Trượt lên khi cuộn)
+    const observerOptions = {
+      threshold: 0.15 // Hiện khi thấy 15%
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // 3. Hiệu ứng gõ chữ cho tiêu đề
+    const titleText = "Giáng Sinh 2025 · Một trang nhỏ chỉ để nói “cảm ơn em”";
+    const titleElement = document.getElementById('typingTitle');
+    let charIndex = 0;
+
+    function typeWriter() {
+      if (charIndex < titleText.length) {
+        titleElement.innerHTML += titleText.charAt(charIndex);
+        charIndex++;
+        setTimeout(typeWriter, 50); // Tốc độ gõ
+      } else {
+        // Bỏ dấu nháy sau khi gõ xong
+        setTimeout(() => titleElement.classList.remove('typing-cursor'), 2000);
+      }
+    }
+    // Chạy sau 0.5s
+    setTimeout(typeWriter, 500);
+
+    // 4. Music Player Logic
+    const bgMusic = document.getElementById('bgMusic');
+    const musicBtn = document.getElementById('musicToggle');
+    const musicIcon = musicBtn.querySelector('i');
+    const musicWave = document.getElementById('musicWave');
+    let isPlaying = false;
+
+    musicBtn.addEventListener('click', () => {
+      if (isPlaying) {
+        bgMusic.pause();
+        musicIcon.className = 'fas fa-play';
+        musicWave.classList.add('paused');
+      } else {
+        bgMusic.play();
+        musicIcon.className = 'fas fa-pause';
+        musicWave.classList.remove('paused');
+      }
+      isPlaying = !isPlaying;
+    });
+
+    // 5. Lightbox Logic
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const closeBtn = document.getElementById('lightboxClose');
+    
+    document.querySelectorAll('.photo-item img').forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightbox.classList.add('active');
+      });
+    });
+
+    const closeLightbox = () => lightbox.classList.remove('active');
+    
+    closeBtn.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e) => {
+      if(e.target === lightbox) closeLightbox();
+    });
+  </script>
+</body>
+</html>
