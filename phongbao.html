@@ -1181,10 +1181,14 @@
     </style>
 </head>
 <body onload="setupSnow()">
-    
-    <audio id="audio" loop>
+    <div id="envelopeBg" style="position:fixed; inset:0; z-index:1; pointer-events:none;">
+            <div style="position:absolute; left:0; top:0; width:100%; height:100%; background:
+                linear-gradient(to right, rgba(26, 13, 100, 0.507), rgba(19, 13, 100, 0.397) 70%, rgb(9, 9, 17) 100%),
+                url('images/hinhnen2.jpg') left center/cover no-repeat;"></div>
+        </div>
+    <!-- <audio id="audio" loop>
         <source src="https://cdn.pixabay.com/audio/2022/11/22/audio_febc508520.mp3" type="audio/mp3">
-    </audio>
+    </audio> -->
 
     <!-- Music Player cho file index.html -->
     <audio id="bgMusic" loop>
@@ -1227,8 +1231,12 @@
     </div>
 
     <div id="mainContent">
-        <div id="snowMain" class="absolute inset-0 pointer-events-none"></div>
-        
+        <div id="snowMain" class="inset-0 pointer-events-none" style="position:fixed; inset:0; z-index:99;"></div>
+        <div id="envelopeBg" style="position:fixed; inset:0; z-index:1; pointer-events:none;">
+            <div style="position:absolute; left:0; top:0; width:100%; height:100%; background:
+                linear-gradient(to right, rgba(26, 13, 100, 0.507), rgba(19, 13, 100, 0.397) 70%, rgb(9, 9, 17) 100%),
+                url('images/hinhnen2.jpg') left center/cover no-repeat;"></div>
+        </div>
         <!-- MUSIC PLAYER -->
         <div class="music-player">
             <div class="music-thumb"><i class="fas fa-music"></i></div>
@@ -1295,24 +1303,23 @@
       <div class="sparkle"></div>
       <div class="sparkle"></div>
     </div>
-    <img src="images/onggianoel.png" alt="Ông già Noel" class="santa-image">
+    <!-- <img src="images/onggianoel.png" alt="Ông già Noel" class="santa-image"> -->
   </div>
             <!-- HERO -->
             <section class="hero reveal">
                 <div class="hero-content">
                     <div>
                         <div class="hero-badge">
-                            <span class="hero-badge-dot"></span>
+                            <!-- <span class="hero-badge-dot"></span> -->
                             <span><i class="fas fa-snowflake"></i> Noel 2025 · Dành riêng cho em 🎄</span>
                         </div>
                         
-                        <div class="hero-title-small">Gửi đến T</div>
+                        <div class="hero-title-small">Gửi đến Cô gái nhỏ</div>
                         <h1 id="typingTitle" class="typing-cursor"></h1>
                         
                         <p class="hero-sub">
-                            Đây là góc nhỏ anh làm để lưu lại những khoảnh khắc dễ thương của em,
-                            một chút màu xanh em thích, một chút ấm áp anh muốn gửi tới.
-                            Góc nhỏ này anh code vội, nhưng chứa đựng sự chân thành (và cả mấy đêm thức trắng debug ^^).
+                            Anh gói ở đây một chút màu xanh bình yên – đúng màu em thích, cùng vài khoảnh khắc nhỏ anh thấy dễ thương.
+                            Chỉ là một góc nhỏ anh làm bằng sự chân thành, mong rằng khi mở ra, em sẽ thấy nhẹ lòng và ấm hơn trong những ngày bận rộn.
                         </p>
                         <div class="hero-note">
                             *Mở trang này vào mỗi mùa Giáng sinh sau nữa, biết đâu mình lại mỉm cười vì những gì đã cùng đi qua.* ✶
@@ -1386,7 +1393,8 @@
                         <div class="message-text">
                             Anh không giỏi nói trực tiếp, nên anh để những điều này nằm yên ở đây.
 
-                            Cảm ơn em vì những lần rủ đi mua đồ, chia cho anh miếng hoa quả, nhờ anh việc linh tinh, hay đơn giản là lúc em bắt bẻ anh😊.
+                            Cảm ơn em vì những khoảnh khắc rất nhỏ nhưng dễ thương: Những lần rủ anh đi đây đó, những câu chuyện vu vơ giữa ngày bận rộn, 
+                            hay đơn giản là cách em mang lại cảm giác nhẹ nhàng cho những người xung quanh.
 
                             Lại một mùa Giáng sinh nữa đến rồi. Anh biết dạo này em bận rộn nhiều thứ, từ học hành đến công việc. 
                             Nhưng đừng quên dành chút thời gian cho bản thân nhé.
@@ -1396,10 +1404,11 @@
                                 <br>– Luôn giữ được năng lượng tích cực mà em mang tới cho mọi người.
                                 <br>– Luôn luôn bình an, thi cử thuận lợi, làm gì cũng vững vàng.
                                 <br>– Dù bận rộn vẫn có thời gian để nghỉ ngơi và vui.
-                                <br>– Chân cứng đá mềm, đi đâu cũng được mọi người yêu quý.
+                                <br>– Luôn vững vàng trước những điều khó, và dịu dàng với những điều nhỏ, đi đâu cũng được mọi người yêu quý.
                             </div>
 
-                            Nếu sau này em tình cờ mở lại trang web này, hy vọng em biết là: đã từng có một mùa Giáng sinh, anh dành nhiều thời gian chỉ để nghĩ cách làm em mỉm cười một xíu thôi. 💫
+                            Nếu sau này em tình cờ mở lại trang web này, hy vọng em biết rằng đã từng có một mùa Giáng sinh, 
+                            anh lặng lẽ gửi vào đây chút ấm áp chỉ để em mỉm cười một chút thôi. 💫
 
                             Merry Christmas! 🎄
                         </div>
@@ -1415,26 +1424,26 @@
                         <div class="timeline" style="margin-top: 15px;">
                             <div class="timeline-item">
                                 <div class="timeline-content">
-                                    <strong>Khởi động</strong>
-                                    Ý tưởng về trang web này xuất hiện sau vài cuộc trò chuyện vẩn vơ.
+                                    <strong>Khởi đầu</strong>
+                                    Một góc nhỏ được tạo ra từ những ngày cuối năm, khi mọi thứ đều vội nhưng cảm xúc thì không.
                                 </div>
                             </div>
                             <div class="timeline-item">
                                 <div class="timeline-content">
-                                    <strong>Màu xanh & trắng</strong>
-                                    Giao diện chọn theo màu em thích: xanh dương – trắng, như bầu trời đêm Noel.
+                                    <strong>Màu sắc</strong>
+                                    Màu Màu xanh và & trắng - những gam màu anh nhớ là em thích, đủ dịu để nhìn lâu mà không mỏi.
                                 </div>
                             </div>
                             <div class="timeline-item">
                                 <div class="timeline-content">
-                                    <strong>Kết hợp tính năng</strong>
-                                    Tích hợp intro screen, pháo giấy, 3D effects, và tất cả những gì hay nhất.
+                                    <strong>Khoảnh khắc</strong>
+                                    Không phải điều gì lớn lao, chỉ là vài hình ảnh, vài dòng chữ... nhưng đều là những điều anh thấy dáng giữ lại.
                                 </div>
                             </div>
                             <div class="timeline-item">
                                 <div class="timeline-content">
-                                    <strong>Gửi tặng</strong>
-                                    Hy vọng món quà này không làm máy em bị lag ^^
+                                    <strong>Gửi em</strong>
+                                    Mong rằng khi mở trang này, em cảm thấy nhẹ hơn một chút - vậy là đủ rồi 😌
                                 </div>
                             </div>
                         </div>
@@ -1456,7 +1465,7 @@
         let charIndex = 0;
         let particles = [];
         const colors = ['#64b5f6', '#ffffff', '#e1f5fe'];
-        const titleText = "Giáng Sinh 2025 · Một trang nhỏ chỉ để nói 'cảm ơn em'";
+        const titleText = "Giáng Sinh Vui Vẻ Nhé! 🎄";
         const titleElement = document.getElementById('typingTitle');
 
         // Typing effect
@@ -1500,10 +1509,10 @@
 
             const env = document.getElementById('env');
             const card = document.getElementById('card');
-            const audio = document.getElementById('audio');
+            //const audio = document.getElementById('audio');
 
             env.classList.add('open');
-            audio.play().catch(e => console.log('Audio play failed:', e));
+            //audio.play().catch(e => console.log('Audio play failed:', e));
 
             setTimeout(() => {
                 card.classList.add('expanded');
@@ -1513,13 +1522,13 @@
                         showMainContent();
                     }, 20);
                 }, 500);
-            }, 1000);
+            }, 800);
         }
 
         function showMainContent() {
             const stage = document.getElementById('stage');
             const mainContent = document.getElementById('mainContent');
-            const bgMusic = document.getElementById('bgMusic');
+            const audio = document.getElementById('bgMusic');
 
             stage.classList.add('zoom-out-effect');
             
@@ -1528,12 +1537,12 @@
                 mainContent.classList.add('active');
                 
                 // Start background music
-                bgMusic.volume = 0.5;
-                bgMusic.play().then(() => {
+                audio.volume = 0.5;
+                audio.play().then(() => {
                     document.getElementById('musicToggle').innerHTML = '<i class="fas fa-pause"></i>';
                     document.getElementById('musicWave').classList.remove('paused');
                     isPlaying = true;
-                }).catch(e => console.log("Music play needs interaction"));
+                }).catch(e => console.log("Cần tương tác thêm để phát nhạc"));
 
                 // Start typing effect
                 setTimeout(typeWriter, 1000);
