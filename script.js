@@ -45,7 +45,7 @@
                 flake.style.left = Math.random() * 100 + '%';
                 flake.style.fontSize = (Math.random() * 10 + 10) + 'px';
                 flake.style.animationDuration = (Math.random() * 5 + 5) + 's';
-                flake.style.animationDelay = Math.random() * 5 + 's';
+                flake.style.animationDelay = Math.random() * 2 + 's';
                 container.appendChild(flake);
             }
         }
