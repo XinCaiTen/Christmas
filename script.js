@@ -69,7 +69,7 @@
                     card.classList.add('unfold');
                     setTimeout(() => {
                         showMainContent();
-                    }, 3000);
+                    }, 3500);
                 }, 500);
             }, 800);
         }
